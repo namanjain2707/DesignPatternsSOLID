@@ -1,6 +1,7 @@
 package net.media.training.live.lsp;
 
 import java.util.LinkedHashSet;
+import java.util.stream.Collectors;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,18 +10,16 @@ import java.util.LinkedHashSet;
  * Time: 12:52:22 PM
  * To change this template use File | Settings | File Templates.
  */
-public class Set<T> {
+public class Set<T> extends Collection<T> {
     protected java.util.Set innerSet = new LinkedHashSet();
 
+    @Override
     public void add(final T element) {
         innerSet.add(element);
     }
 
+    @Override
     public boolean isMember(final T element) {
         return innerSet.contains(element);
-    }
-
-    public int size() {
-        return innerSet.size();
     }
 }

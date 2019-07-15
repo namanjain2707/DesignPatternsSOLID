@@ -1,6 +1,8 @@
 package net.media.training.srp;
 
+import net.media.training.live.srp.Address;
 import net.media.training.live.srp.Employee;
+import net.media.training.live.srp.EmployeeInformationHTML;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -16,8 +18,10 @@ public class EmployeeTest {
 
     @Test
     public void shouldReturnEmployeeInfo() {
-        Employee employee = new Employee(1, 345.123, "Sherlock Holmes", "Baker Street", "London", "UK", 3, new int[]{1, 2, 4,7});
-        String employeeInfo = employee.toHtml();
+        Address address = new Address("Baker Street", "London", "UK");
+        Leaves leaves = new Leaves();
+        Employee employee = new Employee(1, 345.123, "Sherlock Holmes", address, leaves);
+        String employeeInfo = new EmployeeInformationHTML(employee).toHtml();
         String expectedEmployeeInfo = "<div><h1>Employee Info</h1><div id='emp1'><span>Sherlock Holmes</span><div class='left'><span>Leave Left :</span><span>Annual Salary:</span><span>Manager:</span><span>Reimbursable Leave:</span></div><div class='right'><span>0</span><span>4141</span><span>None</span><span>13</span></div> </div>";
         assertEquals("Employee info should be equal", expectedEmployeeInfo, employeeInfo);
     }

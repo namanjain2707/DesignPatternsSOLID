@@ -8,9 +8,9 @@ package net.media.training.live.lsp;
  * To change this template use File | Settings | File Templates.
  */
 public class UniqueCounter {
-    private Set elements;
+    private Collection elements;
 
-    public UniqueCounter(Set elements) {
+    public UniqueCounter(Collection elements) {
         this.elements = elements;
     }
 

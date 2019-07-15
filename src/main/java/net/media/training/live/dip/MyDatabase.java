@@ -1,7 +1,9 @@
 package net.media.training.live.dip;
 
+import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,8 +13,13 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public class MyDatabase {
-    private static Map<Integer, String> data = new Hashtable<Integer, String>();
-    private static int count = 0;
+    private static Map<Integer, String> data;
+    private static int count;
+
+    MyDatabase(Map data,int count){
+        this.data = data;
+        this.count = count;
+    }
 
     public int write(String inputString) {
         data.put(++count, inputString);

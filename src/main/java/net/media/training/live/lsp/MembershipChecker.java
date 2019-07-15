@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class MembershipChecker {
 
-    public static boolean check(List elements, Set uniqueElements) {
+    public static boolean check(List elements, Collection uniqueElements) {
         for (Object element : elements) {
             if (!uniqueElements.isMember(element))
                 return false;
@@ -27,7 +27,7 @@ public class MembershipChecker {
             add("c");
         }};
 
-        Set<String> uniqueElements = new PersistentSet<String>();
+        Collection<String> uniqueElements = new PersistentSet<String>();
         uniqueElements.add("c");
         uniqueElements.add("b");
         uniqueElements.add("a");
